@@ -1,0 +1,13 @@
+:root
+{
+font-family: "IBM Plex Sans Condensed";
+font-weight: 700;
+line-height: 20px;
+color:#404040;
+letter-spacing: -0.15px;
+background: #F0F3F3;
+}
+:any-link{
+    text-decoration: none;
+    color:#404040;
+}
