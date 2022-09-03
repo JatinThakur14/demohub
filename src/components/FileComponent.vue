@@ -7,6 +7,9 @@ const projects = [
     tag: "Planning",
     projectOwner: "src/assets/osuProfilePic.jpg",
     comments: 5,
+    tagColor: {
+      "background-color": "lightblue",
+    },
   },
   {
     projectName: "Lovissa/Design",
@@ -14,6 +17,9 @@ const projects = [
     tag: "Completed",
     projectOwner: "src/assets/osuProfilePic.jpg",
     comments: 1,
+    tagColor: {
+      "background-color": "#DCF487",
+    },
   },
   {
     projectName: "Lovissa/Project",
@@ -21,6 +27,7 @@ const projects = [
     tag: "",
     projectOwner: "src/assets/osuProfilePic.jpg",
     comments: 22,
+    tagColor: {},
   },
   {
     projectName: "Lovissa/Purchasing",
@@ -28,6 +35,9 @@ const projects = [
     tag: "Completed",
     projectOwner: "src/assets/osuProfilePic.jpg",
     comments: 1,
+    tagColor: {
+      "background-color": "#DCF487",
+    },
   },
 ];
 </script>
@@ -62,9 +72,12 @@ const projects = [
           <div class="fileItemContainer">
             <span class="FileName"
               >{{ project.projectName }}
-              <span class="tag" v-show="project.tag">{{
-                project.tag
-              }}</span></span
+              <span
+                class="tag"
+                v-show="project.tag"
+                :style="project.tagColor"
+                >{{ project.tag }}</span
+              ></span
             >
             <span class="lastUpdated">{{ project.lastUpdated }}</span>
           </div>
