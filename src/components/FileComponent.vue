@@ -1,50 +1,17 @@
 <script setup lang="ts">
-const isEmpty = false;
-const projects = [
-  {
-    projectName: "Lovissa/Site",
-    lastUpdated: "changed 2 hours ago by pekkaharju",
-    tag: "Planning",
-    projectOwner: "src/assets/osuProfilePic.jpg",
-    comments: 5,
-    tagColor: {
-      "background-color": "lightblue",
-    },
-  },
-  {
-    projectName: "Lovissa/Design",
-    lastUpdated: "changed 4 hours ago by katrik",
-    tag: "Completed",
-    projectOwner: "src/assets/osuProfilePic.jpg",
-    comments: 1,
-    tagColor: {
-      "background-color": "#DCF487",
-    },
-  },
-  {
-    projectName: "Lovissa/Project",
-    lastUpdated: "changed 7 hours ago by pekkaharju",
-    tag: "",
-    projectOwner: "src/assets/osuProfilePic.jpg",
-    comments: 22,
-    tagColor: {},
-  },
-  {
-    projectName: "Lovissa/Purchasing",
-    lastUpdated: "changed yesterday by pekkaharju",
-    tag: "Completed",
-    projectOwner: "src/assets/osuProfilePic.jpg",
-    comments: 1,
-    tagColor: {
-      "background-color": "#DCF487",
-    },
-  },
-];
+import { useCounterStore } from "@/stores/counter";
+const store = useCounterStore();
+const projects = store.projects;
+function changeChecked() {
+  projects.forEach((item) => {
+    item.checked = !item.checked;
+  });
+}
 </script>
 
 <template>
   <main class="container">
-    <div class="empty" v-if="isEmpty">
+    <div class="empty" v-if="!projects">
       <font-awesome-icon icon="bolt" />
       <p class="emptyHeading">You don't have any file</p>
       <span class="emptyDesc"
@@ -53,13 +20,25 @@ const projects = [
     </div>
 
     <div class="files" v-else>
-      <div class="header">
-        <input type="checkbox" />
-        <div>
-          <span>Label</span>
-          <span>Project</span>
-          <span>Owner</span>
-          <span>Sort</span>
+      <div class="headerContainer">
+        <input type="checkbox" @change="changeChecked" class="checkBox" />
+        <div class="header">
+          <span class="headerColumn"
+            ><span>Label</span>
+            <font-awesome-icon icon="sort-down" class="iconSortDown"
+          /></span>
+          <span class="headerColumn"
+            ><span>Projects</span>
+            <font-awesome-icon icon="sort-down" class="iconSortDown"
+          /></span>
+          <span class="headerColumn"
+            ><span>Owner</span>
+            <font-awesome-icon icon="sort-down" class="iconSortDown"
+          /></span>
+          <span class="headerColumn"
+            ><span>Sort</span>
+            <font-awesome-icon icon="sort-down" class="iconSortDown"
+          /></span>
         </div>
       </div>
       <div
@@ -68,7 +47,7 @@ const projects = [
         :key="project.projectName"
       >
         <div class="leftSide">
-          <input type="checkbox" />
+          <input type="checkbox" :checked="project.checked" class="checkBox" />
           <div class="fileItemContainer">
             <span class="FileName"
               >{{ project.projectName }}
@@ -98,7 +77,10 @@ const projects = [
 .container {
   display: grid;
   height: 90vh;
-
+  .checkBox {
+    background: cyan;
+    color: cyan;
+  }
   .empty {
     width: 27.12rem;
     height: 10.25rem;
@@ -124,23 +106,38 @@ const projects = [
   }
   .files {
     display: table;
-    width: 80vw;
+    width: 89vw;
     font-size: 14px;
     justify-self: center;
     font-weight: normal;
-
-    border-radius: 6px;
+    font-family: "IBM Plex Sans", sans-serif;
+    outline: none;
     margin-block-start: 2rem;
-    .header {
+    .headerContainer {
       display: flex;
       justify-content: space-between;
       background: #f6f8fa;
       border: 1px solid #0002;
       align-items: center;
       padding-block: 0.4rem;
+      border-radius: 6px 6px 0 0;
+      padding-inline-start: 0.3rem;
       & span {
         padding: 0.2rem 0.4rem;
-        margin-inline: 1rem;
+        margin-inline: 0.5rem;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+        .headerColumn {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .iconSortDown {
+            transform: scale(0.9);
+            padding-bottom: 0.4rem;
+          }
+        }
       }
     }
     .fileEntries {
@@ -151,10 +148,12 @@ const projects = [
       justify-content: space-between;
       .leftSide {
         display: flex;
+        padding-inline-start: 0.3rem;
         .fileItemContainer {
           display: flex;
           flex-direction: column;
           padding-inline-start: 0.5rem;
+          margin-inline-start: 0.2rem;
           .lastUpdated {
             font-size: 12px;
             color: grey;
@@ -163,6 +162,7 @@ const projects = [
             font-size: 13px;
             font-weight: 600;
             padding-inline: 0.4rem;
+            margin-inline-start: 0.2rem;
             background: lightblue;
             border-radius: 2rem;
           }
@@ -171,18 +171,22 @@ const projects = [
       .rightSide {
         display: flex;
         width: 7rem;
-        margin-inline-end: 1rem;
+        margin-inline-end: 3rem;
         .owner {
           border-radius: 50%;
           width: 25px;
           height: 25px;
-          margin-inline-end: 2.9rem;
+          margin-top: 0.2rem;
+          margin-inline-end: 5rem;
         }
         .comments {
           display: flex;
           width: 3rem;
           justify-content: space-evenly;
           align-items: center;
+          .commentCount {
+            margin: 0.5rem;
+          }
         }
       }
     }

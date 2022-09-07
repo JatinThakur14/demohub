@@ -5,7 +5,6 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faBolt, faMessage, faSortDown } from "@fortawesome/free-solid-svg-icons";
 import App from "./App.vue";
 import router from "./router";
-
 import "@fontsource/ibm-plex-sans-condensed";
 import '@/assets/main.css';
 
