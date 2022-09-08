@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useCounterStore } from "@/stores/counter";
 const store = useCounterStore();
-const projects = store.projects;
+const projects = store.getFilteredProjects;
 function changeChecked() {
   projects.forEach((item) => {
     item.checked = !item.checked;
@@ -62,7 +62,11 @@ function changeChecked() {
           </div>
         </div>
         <div class="rightSide">
-          <img :src="project.projectOwner" alt="User" class="owner" />
+          <img
+            :src="`./src/assets/${project.projectOwner}`"
+            alt="User"
+            class="owner"
+          />
           <span class="comments"
             ><font-awesome-icon icon="message" />
             <span class="commentCount">{{ project.comments }} </span></span
@@ -110,6 +114,7 @@ function changeChecked() {
     font-size: 14px;
     justify-self: center;
     font-weight: normal;
+    color: #24292f;
     font-family: "IBM Plex Sans", sans-serif;
     outline: none;
     margin-block-start: 2rem;
@@ -156,7 +161,7 @@ function changeChecked() {
           margin-inline-start: 0.2rem;
           .lastUpdated {
             font-size: 12px;
-            color: grey;
+            color: #57606a;
           }
           .tag {
             font-size: 13px;
