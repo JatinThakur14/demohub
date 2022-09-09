@@ -2,8 +2,9 @@ import { defineStore } from "pinia";
 export const useCounterStore = defineStore({
   id: "counter",
   state: () => ({
-    searchBarVal:"",
-    projects : [
+    searchBarVal: "",
+    isEmpty: null as boolean | null,
+    projects: [
       {
         projectName: "Lovissa/Site",
         lastUpdated: "changed 2 hours ago by pekkaharju",
@@ -46,9 +47,9 @@ export const useCounterStore = defineStore({
           "background-color": "#DCF487",
         },
       },
-        {
+      {
         projectName: "Vaasankatu/Project",
-        lastUpdated:  "changed 3 days ago by pekkaharju",
+        lastUpdated: "changed 3 days ago by pekkaharju",
         tag: "",
         projectOwner: "pekkaharju.png",
         comments: 1,
@@ -59,7 +60,7 @@ export const useCounterStore = defineStore({
       },
       {
         projectName: "Onkalo/Project",
-        lastUpdated:  "changed 12 days ago by pekkaharju",
+        lastUpdated: "changed 12 days ago by pekkaharju",
         tag: "",
         projectOwner: "pekkaharju.png",
         comments: 1,
@@ -67,38 +68,40 @@ export const useCounterStore = defineStore({
         tagColor: {
           "background-color": "#DCF487",
         },
-      },   
-       {
+      },
+      {
         projectName: "Onkalo/Geo",
-        lastUpdated:  "changed 22 days ago by pekkaharju",
+        lastUpdated: "changed 22 days ago by pekkaharju",
         tag: "Delay",
         projectOwner: "pekkaharju.png",
         comments: 1,
         checked: false,
         tagColor: {
           "background-color": "#E05915",
-        }
+        },
       },
     ] as userProjects[],
   }),
   getters: {
-    getFilteredProjects(state){
-      return state.projects.filter(item=> item.projectName.toLowerCase().includes(state.searchBarVal.toLowerCase()));
-    }
+    getFilteredProjects(state) {
+      return state.projects.filter((item) =>
+        item.projectName
+          .toLowerCase()
+          .includes(state.searchBarVal.toLowerCase())
+      );
+    },
   },
-  actions: {
-
-  },
+  actions: {},
 });
 
-export interface userProjects{
-  projectName:string
-  lastUpdated:string
-  tag:string
-  projectOwner:string
-  comments:number
-  checked:boolean
-  tagColor:{
-    "background-color":string
-  }
+export interface userProjects {
+  projectName: string;
+  lastUpdated: string;
+  tag: string;
+  projectOwner: string;
+  comments: number;
+  checked: boolean;
+  tagColor: {
+    "background-color": string;
+  };
 }

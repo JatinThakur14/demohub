@@ -1,7 +1,7 @@
 <template>
-  <div class="about">
+  <main class="about">
     <h1>This shall be the change page</h1>
-  </div>
+  </main>
 </template>
 
 <style>

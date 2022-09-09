@@ -2,15 +2,19 @@ import { createApp } from "vue";
 import { createPinia } from "pinia";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faBolt, faMessage, faSortDown } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBolt,
+  faMessage,
+  faSortDown,
+} from "@fortawesome/free-solid-svg-icons";
 import App from "./App.vue";
 import router from "./router";
 import "@fontsource/ibm-plex-sans-condensed";
-import '@/assets/main.css';
+import "@/assets/main.css";
 
-library.add(faBolt,faSortDown,faMessage);
+library.add(faBolt, faSortDown, faMessage);
 const app = createApp(App);
-app.component('font-awesome-icon',FontAwesomeIcon);
+app.component("font-awesome-icon", FontAwesomeIcon);
 
 app.use(createPinia());
 app.use(router);
