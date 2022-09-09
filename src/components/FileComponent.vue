@@ -64,7 +64,7 @@ function changeChecked() {
         </div>
         <div class="rightSide">
           <img
-            :src="`./src/assets/${project.projectOwner}`"
+            :src="`/src/assets/${project.projectOwner}`"
             alt="User"
             class="owner"
           />
