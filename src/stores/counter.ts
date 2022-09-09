@@ -1,10 +1,9 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
 export const useCounterStore = defineStore({
   id: "counter",
   state: () => ({
-    searchBarVal:ref(""),
-    projects : ref ([
+    searchBarVal:"",
+    projects : [
       {
         projectName: "Lovissa/Site",
         lastUpdated: "changed 2 hours ago by pekkaharju",
@@ -80,11 +79,11 @@ export const useCounterStore = defineStore({
           "background-color": "#E05915",
         }
       },
-    ] as userProjects[]),
+    ] as userProjects[],
   }),
   getters: {
     getFilteredProjects(state){
-      return state.projects.filter(item=> item.projectName.includes(state.searchBarVal));
+      return state.projects.filter(item=> item.projectName.toLowerCase().includes(state.searchBarVal.toLowerCase()));
     }
   },
   actions: {
@@ -92,7 +91,7 @@ export const useCounterStore = defineStore({
   },
 });
 
-interface userProjects{
+export interface userProjects{
   projectName:string
   lastUpdated:string
   tag:string

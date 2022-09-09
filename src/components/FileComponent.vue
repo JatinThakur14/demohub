@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import { useCounterStore } from "@/stores/counter";
-const store = useCounterStore();
-const projects = store.getFilteredProjects;
+import { storeToRefs } from "pinia";
+const { getFilteredProjects } = storeToRefs(useCounterStore());
+const projects = getFilteredProjects;
 function changeChecked() {
-  projects.forEach((item) => {
+  projects.value.forEach((item) => {
     item.checked = !item.checked;
   });
+}
+function getImgUrl(img: string) {
+  return `./src/assets/${img}`;
 }
 </script>
 
@@ -63,7 +67,7 @@ function changeChecked() {
         </div>
         <div class="rightSide">
           <img
-            :src="`./src/assets/${project.projectOwner}`"
+            :src="getImgUrl(project.projectOwner)"
             alt="User"
             class="owner"
           />
