@@ -9,7 +9,7 @@ function changeChecked() {
   });
 }
 function getImgUrl(img: string) {
-  return `../assets/${img}`;
+  return `./src/assets/${img}`;
 }
 </script>
 
