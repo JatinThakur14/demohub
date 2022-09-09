@@ -8,9 +8,6 @@ function changeChecked() {
     item.checked = !item.checked;
   });
 }
-function getImgUrl(img: string) {
-  return `./src/assets/${img}`;
-}
 </script>
 
 <template>
@@ -67,7 +64,7 @@ function getImgUrl(img: string) {
         </div>
         <div class="rightSide">
           <img
-            :src="getImgUrl(project.projectOwner)"
+            :src="`./src/assets/${project.projectOwner}`"
             alt="User"
             class="owner"
           />
