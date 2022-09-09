@@ -60,11 +60,7 @@ onMounted(() => {
         </div>
       </div>
       <div class="rightSide">
-        <img
-          :src="`/src/assets/${project.projectOwner}`"
-          alt="User"
-          class="owner"
-        />
+        <img :src="project.projectOwner" alt="User" class="owner" />
         <span class="comments"
           ><font-awesome-icon icon="message" />
           <span class="commentCount">{{ project.comments }} </span></span
