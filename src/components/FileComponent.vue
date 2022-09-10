@@ -2,7 +2,6 @@
 import { useCounterStore } from "@/stores/counter";
 import { storeToRefs } from "pinia";
 import { onMounted } from "vue";
-
 const { getFilteredProjects, isEmpty } = storeToRefs(useCounterStore());
 const projects = getFilteredProjects;
 function changeChecked() {
@@ -22,7 +21,7 @@ onMounted(() => {
 <template>
   <div class="files">
     <div class="headerContainer">
-      <input type="checkbox" @change="changeChecked" class="checkBox" />
+      <input type="checkbox" @change="changeChecked" />
       <div class="header">
         <span class="headerColumn"
           ><span>Label</span>
@@ -42,6 +41,7 @@ onMounted(() => {
         /></span>
       </div>
     </div>
+
     <div
       class="fileEntries"
       v-for="project in projects"
@@ -62,7 +62,7 @@ onMounted(() => {
       <div class="rightSide">
         <img :src="project.projectOwner" alt="User" class="owner" />
         <span class="comments"
-          ><font-awesome-icon icon="message" />
+          ><img src="@/assets/message.svg" alt="msg" />
           <span class="commentCount">{{ project.comments }} </span></span
         >
       </div>
@@ -72,7 +72,7 @@ onMounted(() => {
 <style scoped lang="scss">
 .files {
   display: table;
-  width: 89vw;
+  width: 88vw;
   font-size: 14px;
   justify-self: center;
   font-weight: normal;
@@ -83,51 +83,66 @@ onMounted(() => {
   .headerContainer {
     display: flex;
     justify-content: space-between;
-    background: #f6f8fa;
-    border: 1px solid #0002;
     align-items: center;
+    background: #f6f8fa;
+    color: #24292f;
+    border: 1px solid #0002;
+    border-bottom: 0.5px solid #0002;
+    font-size: 13px;
+    line-height: 20px;
     padding-block: 0.4rem;
+    font-weight: 400;
     border-radius: 6px 6px 0 0;
-    padding-inline-start: 0.3rem;
-    & span {
-      padding: 0.2rem 0.4rem;
-      margin-inline: 0.5rem;
-    }
+    padding-inline: 0.8rem;
+    padding-block: 0.5rem;
     .header {
       display: flex;
       align-items: center;
+      width: 20rem;
+      justify-content: space-between;
       .headerColumn {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        height: inherit;
         .iconSortDown {
           transform: scale(0.9);
-          padding-bottom: 0.4rem;
+          padding-bottom: 0.1rem;
+          padding-inline-start: 1rem;
+          opacity: 0.7;
         }
       }
     }
   }
   .fileEntries {
     background: #fff;
-    border: 1px solid #0002;
+    border-block-end: 1px solid #0002;
+    border-inline: 1px solid #0002;
     padding-block: 0.4rem;
     display: flex;
+    font-size: 14px;
+    font-style: normal;
+    line-height: 24px;
+    color: #24292f;
     justify-content: space-between;
     .leftSide {
       display: flex;
-      padding-inline-start: 0.3rem;
+      padding-inline-start: 0.8rem;
+      .checkBox {
+        margin-block-end: 1.5rem;
+      }
       .fileItemContainer {
         display: flex;
         flex-direction: column;
         padding-inline-start: 0.5rem;
         margin-inline-start: 0.2rem;
+        font-weight: 400;
         .lastUpdated {
           font-size: 12px;
           color: #57606a;
         }
         .tag {
           font-size: 13px;
-          font-weight: 600;
+          font-weight: bold;
           padding-inline: 0.4rem;
           margin-inline-start: 0.2rem;
           background: lightblue;
@@ -138,13 +153,13 @@ onMounted(() => {
     .rightSide {
       display: flex;
       width: 7rem;
-      margin-inline-end: 3rem;
+      margin-inline-end: 1.9rem;
       .owner {
         border-radius: 50%;
         width: 25px;
         height: 25px;
-        margin-top: 0.2rem;
-        margin-inline-end: 5rem;
+        margin-top: 0.6rem;
+        margin-inline-end: 3.7rem;
       }
       .comments {
         display: flex;
