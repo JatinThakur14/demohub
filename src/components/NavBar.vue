@@ -1,21 +1,31 @@
 <script setup lang="ts">
+import { useCounterStore } from "@/stores/counter";
 import { RouterLink } from "vue-router";
+const store = useCounterStore();
+
+function updateSearch() {
+  store.$patch((state) => {
+    state.searchBarVal = store.searchBarVal;
+  });
+}
 </script>
 <template>
   <nav>
     <div class="left-side">
       <img src="../assets/logo.png" alt="logo" width="46" height="44" />
-      <input type="search" class="searchBar" placeholder="&#xF002;" />
+      <input
+        type="search"
+        class="searchBar"
+        placeholder="&#xF002;"
+        @input="updateSearch"
+        v-model="store.searchBarVal"
+      />
       <RouterLink to="/">Files</RouterLink>
       <RouterLink to="/changes">Changes</RouterLink>
     </div>
     <div class="right-side">
       <img src="@/assets/help.svg" alt="Help" width="30.25" />
-      <img
-        src="@/assets/osuProfilePic.jpg"
-        alt="user's Profile"
-        id="userProfile"
-      />
+      <img src="@/assets/avatar.png" alt="user's Profile" id="userProfile" />
     </div>
   </nav>
 </template>
