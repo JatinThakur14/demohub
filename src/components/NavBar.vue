@@ -20,8 +20,8 @@ function updateSearch() {
         @input="updateSearch"
         v-model="store.searchBarVal"
       />
-      <RouterLink to="/">Files</RouterLink>
-      <RouterLink to="/changes">Changes</RouterLink>
+      <RouterLink to="/" class="link">Files</RouterLink>
+      <RouterLink to="/changes" class="link">Changes</RouterLink>
     </div>
     <div class="right-side">
       <img src="@/assets/help.svg" alt="Help" width="30.25" />
@@ -35,16 +35,21 @@ nav {
   justify-content: space-between;
   align-items: center;
   height: 7vh;
-
+  .link {
+    font-weight: bolder;
+    font-size: 20px;
+    margin-inline-start: 0.7rem;
+  }
   .left-side {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 25rem;
+    width: 28rem;
     .searchBar {
       border-radius: 6px;
-      height: 1.8rem;
-      width: 11rem;
+      height: 2rem;
+      width: 13rem;
+      margin-left: 1rem;
       position: relative;
       font-family: FontAwesome;
       padding-inline-start: 6px;

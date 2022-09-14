@@ -52,9 +52,14 @@ onMounted(() => {
         <div class="fileItemContainer">
           <span class="FileName"
             >{{ project.projectName }}
-            <span class="tag" v-show="project.tag" :style="project.tagColor">{{
-              project.tag
-            }}</span></span
+            <span
+              class="tag"
+              v-show="project.tag"
+              v-for="(tag, index) in project.tag"
+              :key="index"
+              :style="project.tagColor[index]"
+              >{{ tag }}</span
+            ></span
           >
           <span class="lastUpdated">{{ project.lastUpdated }}</span>
         </div>
@@ -99,6 +104,7 @@ onMounted(() => {
       display: flex;
       align-items: center;
       width: 20rem;
+      line-height: 1.3rem;
       justify-content: space-between;
       .headerColumn {
         display: flex;
@@ -117,7 +123,7 @@ onMounted(() => {
     background: #fff;
     border-block-end: 1px solid #0002;
     border-inline: 1px solid #0002;
-    padding-block: 0.4rem;
+    padding-block: 0.3rem;
     display: flex;
     font-size: 14px;
     font-style: normal;
@@ -135,16 +141,17 @@ onMounted(() => {
         flex-direction: column;
         padding-inline-start: 0.5rem;
         margin-inline-start: 0.2rem;
-        font-weight: 400;
+        font-weight: normal;
+        letter-spacing: 0;
         .lastUpdated {
           font-size: 12px;
           color: #57606a;
         }
         .tag {
           font-size: 13px;
-          font-weight: bold;
-          padding-inline: 0.4rem;
-          margin-inline-start: 0.2rem;
+          font-weight: bolder;
+          padding-inline: 0.5rem;
+          margin-inline: 0.1rem 0.3rem;
           background: lightblue;
           border-radius: 2rem;
         }
@@ -156,9 +163,9 @@ onMounted(() => {
       margin-inline-end: 1.9rem;
       .owner {
         border-radius: 50%;
-        width: 25px;
-        height: 25px;
-        margin-top: 0.6rem;
+        width: 22px;
+        height: 22px;
+        margin-top: 0.8rem;
         margin-inline-end: 3.7rem;
       }
       .comments {
