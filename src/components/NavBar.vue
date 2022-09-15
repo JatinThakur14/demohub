@@ -36,9 +36,10 @@ nav {
   align-items: center;
   height: 7vh;
   .link {
-    font-weight: bolder;
-    font-size: 20px;
-    margin-inline-start: 0.7rem;
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: -0.15px;
+    margin-inline-start: 0.6rem;
   }
   .left-side {
     display: flex;
