@@ -6,7 +6,7 @@ export const useCounterStore = defineStore({
     isEmpty: null as boolean | null,
     projects: [
       {
-        projectName: "Lovissa/Site",
+        projectName: "Loviisa/Site",
         lastUpdated: "changed 2 hours ago by pekkaharju",
         tag: ["Planning"],
         projectOwner: "pekkaharju.png",
@@ -19,7 +19,7 @@ export const useCounterStore = defineStore({
         ],
       },
       {
-        projectName: "Lovissa/Design",
+        projectName: "Loviisa/Design",
         lastUpdated: "changed 4 hours ago by katrik",
         tag: ["Completed"],
         projectOwner: "katrik.png",
@@ -32,7 +32,7 @@ export const useCounterStore = defineStore({
         ],
       },
       {
-        projectName: "Lovissa/Project",
+        projectName: "Loviisa/Project",
         lastUpdated: "changed 7 hours ago by pekkaharju",
         tag: [],
         projectOwner: "pekkaharju.png",
@@ -41,7 +41,7 @@ export const useCounterStore = defineStore({
         tagColor: [{}],
       },
       {
-        projectName: "Lovissa/Purchasing",
+        projectName: "Loviisa/Purchasing",
         lastUpdated: "changed yesterday by anttijuh",
         tag: ["Completed"],
         projectOwner: "anttijuh.png",

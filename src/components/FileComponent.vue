@@ -84,7 +84,7 @@ onMounted(() => {
   color: #24292f;
   font-family: "IBM Plex Sans", sans-serif;
   outline: none;
-  margin-block-start: 2rem;
+  margin-block-start: 4rem;
   .headerContainer {
     display: flex;
     justify-content: space-between;
@@ -120,6 +120,7 @@ onMounted(() => {
     }
   }
   .fileEntries {
+    font-family: "IBM Plex Sans", sans-serif;
     background: #fff;
     border-block-end: 1px solid #0002;
     border-inline: 1px solid #0002;
@@ -127,7 +128,7 @@ onMounted(() => {
     display: flex;
     font-size: 14px;
     font-style: normal;
-    line-height: 24px;
+    line-height: 26px;
     color: #24292f;
     justify-content: space-between;
     .leftSide {
@@ -149,8 +150,8 @@ onMounted(() => {
         }
         .tag {
           font-size: 13px;
-          font-weight: bolder;
-          padding-inline: 0.5rem;
+          font-weight: bold;
+          padding: 2px 0.5rem;
           margin-inline: 0.1rem 0.3rem;
           background: lightblue;
           border-radius: 2rem;

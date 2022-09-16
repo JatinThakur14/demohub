@@ -37,7 +37,7 @@ nav {
   height: 7vh;
   .link {
     font-weight: 700;
-    font-size: 19px;
+    font-size: 20px;
     letter-spacing: -0.15px;
     margin-inline-start: 0.6rem;
   }
