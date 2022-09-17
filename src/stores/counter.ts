@@ -6,79 +6,94 @@ export const useCounterStore = defineStore({
     isEmpty: null as boolean | null,
     projects: [
       {
-        projectName: "Lovissa/Site",
+        projectName: "Loviisa/Site",
         lastUpdated: "changed 2 hours ago by pekkaharju",
-        tag: "Planning",
+        tag: ["Planning"],
         projectOwner: "pekkaharju.png",
         comments: 5,
         checked: false,
-        tagColor: {
-          "background-color": "#BBDDE6",
-        },
+        tagColor: [
+          {
+            "background-color": "#BBDDE6",
+          },
+        ],
       },
       {
-        projectName: "Lovissa/Design",
+        projectName: "Loviisa/Design",
         lastUpdated: "changed 4 hours ago by katrik",
-        tag: "Completed",
+        tag: ["Completed"],
         projectOwner: "katrik.png",
         comments: 1,
         checked: false,
-        tagColor: {
-          "background-color": "#DCF487",
-        },
+        tagColor: [
+          {
+            "background-color": "#DCF487",
+          },
+        ],
       },
       {
-        projectName: "Lovissa/Project",
+        projectName: "Loviisa/Project",
         lastUpdated: "changed 7 hours ago by pekkaharju",
-        tag: "",
+        tag: [],
         projectOwner: "pekkaharju.png",
         comments: 22,
         checked: false,
-        tagColor: {},
+        tagColor: [{}],
       },
       {
-        projectName: "Lovissa/Purchasing",
+        projectName: "Loviisa/Purchasing",
         lastUpdated: "changed yesterday by anttijuh",
-        tag: "Completed",
+        tag: ["Completed"],
         projectOwner: "anttijuh.png",
         comments: 1,
         checked: false,
-        tagColor: {
-          "background-color": "#DCF487",
-        },
+        tagColor: [
+          {
+            "background-color": "#DCF487",
+          },
+        ],
       },
       {
         projectName: "Vaasankatu/Project",
         lastUpdated: "changed 3 days ago by pekkaharju",
-        tag: "",
+        tag: [],
         projectOwner: "pekkaharju.png",
         comments: 1,
         checked: false,
-        tagColor: {
-          "background-color": "#DCF487",
-        },
+        tagColor: [
+          {
+            "background-color": "#DCF487",
+          },
+        ],
       },
       {
         projectName: "Onkalo/Project",
         lastUpdated: "changed 12 days ago by pekkaharju",
-        tag: "",
+        tag: [],
         projectOwner: "pekkaharju.png",
         comments: 1,
         checked: false,
-        tagColor: {
-          "background-color": "#DCF487",
-        },
+        tagColor: [
+          {
+            "background-color": "#DCF487",
+          },
+        ],
       },
       {
         projectName: "Onkalo/Geo",
         lastUpdated: "changed 22 days ago by pekkaharju",
-        tag: "Delay",
+        tag: ["Delay", "Planning"],
         projectOwner: "pekkaharju.png",
         comments: 1,
         checked: false,
-        tagColor: {
-          "background-color": "#E05915",
-        },
+        tagColor: [
+          {
+            "background-color": "#E05915",
+          },
+          {
+            "background-color": "#BBDDE6",
+          },
+        ],
       },
     ] as userProjects[],
   }),
@@ -97,11 +112,13 @@ export const useCounterStore = defineStore({
 export interface userProjects {
   projectName: string;
   lastUpdated: string;
-  tag: string;
+  tag: string[];
   projectOwner: string;
   comments: number;
   checked: boolean;
-  tagColor: {
-    "background-color": string;
-  };
+  tagColor: [
+    {
+      "background-color": string;
+    }
+  ];
 }
