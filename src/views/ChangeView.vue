@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import ChangeCard from "@/components/ChangeCard.vue";
+import LoadButton from "../components/LoadButton.vue";
 </script>
 <template>
   <main class="change">
     <ChangeCard />
+    <LoadButton />
   </main>
 </template>
 

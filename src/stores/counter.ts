@@ -4,6 +4,7 @@ export const useCounterStore = defineStore({
   state: () => ({
     searchBarVal: "",
     isEmpty: null as boolean | null,
+    limit: 3,
     projects: [
       {
         projectName: "Loviisa/Site",
@@ -174,6 +175,9 @@ export const useCounterStore = defineStore({
           .toLowerCase()
           .includes(state.searchBarVal.toLowerCase())
       );
+    },
+    getLimitedChanges(state) {
+      return state.changes.slice(0, state.limit);
     },
   },
   actions: {},

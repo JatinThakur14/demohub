@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { useCounterStore } from "@/stores/counter";
-const store = useCounterStore();
-const changes = store.changes;
+import { storeToRefs } from "pinia";
+const { getLimitedChanges } = storeToRefs(useCounterStore());
+const changes = getLimitedChanges;
 </script>
 
 <template>
