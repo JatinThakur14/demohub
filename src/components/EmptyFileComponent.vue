@@ -19,12 +19,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-weight: 500;
   .emptyHeading {
+    font-size: 24px;
     letter-spacing: 1px;
   }
   .emptyDesc {
     color: #57606a;
     font-size: 14px;
+    font-weight: normal;
     .addFileLink {
       text-decoration: underline;
       color: rebeccapurple;

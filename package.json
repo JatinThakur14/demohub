@@ -1,6 +1,6 @@
 {
   "name": "demohub",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
@@ -10,7 +10,6 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "@fontsource/ibm-plex-sans-condensed": "^4.5.10",
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",

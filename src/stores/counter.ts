@@ -95,7 +95,77 @@ export const useCounterStore = defineStore({
           },
         ],
       },
-    ] as userProjects[],
+    ] as ProjectsInterface[],
+    changes: [
+      {
+        userName: "Antii Juhta ",
+        action: "commits",
+        repo: "Loviisa/purchasing",
+        branch: "purchasing-latest",
+        pfp: "anttijuh.png",
+        logs: [
+          {
+            code: "ac34534x5",
+            msg: "changed roof type to table",
+          },
+          {
+            code: "ye11564u9",
+            msg: "changed slab purchase price to match quote ",
+          },
+        ],
+      },
+      {
+        userName: "Katri Kauniainen ",
+        action: "commits",
+        repo: "Loviisa/design",
+        branch: "design-latest",
+        pfp: "katrik.png",
+        logs: [
+          {
+            code: "xz14134a1",
+            msg: "roofing material changed",
+          },
+          {
+            code: "ye11564u9",
+            msg: "changed pillar type",
+          },
+        ],
+      },
+      {
+        userName: "Pekka Harju ",
+        action: "commits",
+        repo: "Loviisa/project",
+        branch: "project-latest",
+        pfp: "pekkaharju.png",
+        logs: [
+          {
+            code: "ac34534x5",
+            msg: "number of toilets increased",
+          },
+          {
+            code: "ye11564u9",
+            msg: "new requirements for facade from zoning",
+          },
+        ],
+      },
+      {
+        userName: "Pekka Harju ",
+        action: "commits",
+        repo: "Loviisa/project",
+        branch: "project-latest",
+        pfp: "pekkaharju.png",
+        logs: [
+          {
+            code: "ac34534x5",
+            msg: "building footprint reduced",
+          },
+          {
+            code: "ye11564u9",
+            msg: "room height increased",
+          },
+        ],
+      },
+    ] as ChangesInterface[],
   }),
   getters: {
     getFilteredProjects(state) {
@@ -109,7 +179,7 @@ export const useCounterStore = defineStore({
   actions: {},
 });
 
-export interface userProjects {
+export interface ProjectsInterface {
   projectName: string;
   lastUpdated: string;
   tag: string[];
@@ -121,4 +191,15 @@ export interface userProjects {
       "background-color": string;
     }
   ];
+}
+export interface ChangesInterface {
+  userName: string;
+  action: string;
+  repo: string;
+  branch: string;
+  pfp: string;
+  logs: {
+    code: string;
+    msg: string;
+  }[];
 }
