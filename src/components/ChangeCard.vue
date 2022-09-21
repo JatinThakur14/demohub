@@ -31,8 +31,11 @@ const changes = getLimitedChanges;
   </div>
 </template>
 <style lang="scss" scoped>
+$cardBodyWidth: 80rem;
+$cardBodyHeight: 6.8rem;
 .card {
   color: #000000;
+  margin-inline-start: -2rem;
   margin-block-end: 2rem;
   .heading {
     display: flex;
@@ -46,15 +49,15 @@ const changes = getLimitedChanges;
       font-weight: 700;
     }
     img {
-      width: 37px;
+      width: 35px;
     }
   }
   .body {
     margin-inline-start: 3rem;
     background-color: #fff;
     outline: 1px solid #c1c1c1;
-    width: 1281px;
-    height: 109px;
+    width: $cardBodyWidth;
+    height: $cardBodyHeight;
     border-radius: 7px;
     .holder {
       display: inline-flex;
@@ -68,8 +71,7 @@ const changes = getLimitedChanges;
         margin-inline-end: 1.3rem;
       }
       .branch {
-        // font-family: -apple-system-body, BlinkMacSystemFont, sans-serif;
-        font-family: "Inter", sans-serif;
+        font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
         letter-spacing: 1.5px;
         font-style: normal;
         font-weight: 400;
