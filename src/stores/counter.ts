@@ -170,10 +170,14 @@ export const useCounterStore = defineStore({
   }),
   getters: {
     getFilteredProjects(state) {
-      return state.projects.filter((item) =>
-        item.projectName
-          .toLowerCase()
-          .includes(state.searchBarVal.toLowerCase())
+      return state.projects.filter(
+        (item) =>
+          item.projectName
+            .toLowerCase()
+            .includes(state.searchBarVal.toLowerCase()) ||
+          item.lastUpdated
+            .toLowerCase()
+            .includes(state.searchBarVal.toLowerCase())
       );
     },
     getLimitedChanges(state) {
