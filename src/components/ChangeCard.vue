@@ -31,8 +31,12 @@ const changes = getLimitedChanges;
   </div>
 </template>
 <style lang="scss" scoped>
-$cardBodyWidth: 80rem;
-$cardBodyHeight: 6.8rem;
+$cardBodyWidth: 81.5rem;
+$cardBodyHeight: 6.8rem; //default:6.8rem
+$lineHeight: 20px; //default:20px
+@function setFontSize($size) {
+  @return 18px - $size;
+}
 .card {
   color: #000000;
   margin-inline-start: -2rem;
@@ -40,20 +44,20 @@ $cardBodyHeight: 6.8rem;
   .heading {
     display: flex;
     align-items: center;
-    font-size: 18px;
+    font-size: setFontSize(1px);
     margin-block-end: 0.2rem;
     .title {
-      margin-inline-start: 0.7rem;
+      margin-inline-start: 1rem;
     }
     .bold {
       font-weight: 700;
     }
     img {
-      width: 35px;
+      width: 34px;
     }
   }
   .body {
-    margin-inline-start: 3rem;
+    margin-inline-start: 3.2rem;
     background-color: #fff;
     outline: 1px solid #c1c1c1;
     width: $cardBodyWidth;
@@ -65,8 +69,8 @@ $cardBodyHeight: 6.8rem;
       align-items: center;
       margin-inline-start: 2rem;
       .action {
-        font-size: 18px;
-        line-height: 20px;
+        font-size: setFontSize(1px);
+        line-height: $lineHeight;
         letter-spacing: -0.15px;
         margin-inline-end: 1.3rem;
       }
@@ -74,13 +78,12 @@ $cardBodyHeight: 6.8rem;
         font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
         letter-spacing: 1.5px;
         font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
+        font-size: setFontSize(4px);
         line-height: 16px;
-        background-color: #0969da22;
+        background-color: #d1e7f1;
         border-radius: 10px;
-        padding: 0.2rem 0.4rem;
-        color: #0366d6;
+        padding: 0.3rem 0.4rem;
+        color: #0969da;
       }
     }
     .logs {
@@ -95,12 +98,14 @@ $cardBodyHeight: 6.8rem;
         margin-inline-end: 0.3rem;
       }
       .code {
-        font-size: 14px;
+        font-size: setFontSize(4px);
         letter-spacing: -0.15px;
         color: #821fcf;
       }
       .msg {
         margin-inline-start: 1rem;
+        font-size: setFontSize(4px);
+        // font-weight: 300;
       }
     }
   }

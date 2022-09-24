@@ -4,12 +4,16 @@ import { useCounterStore } from "@/stores/counter";
 const loadMoreButton = ref<null | { disabled: boolean }>(null);
 const store = useCounterStore();
 watchEffect(() => {
-  if (store.limit === store.changes.length && loadMoreButton.value != null)
+  if (store.limit >= store.changes.length && loadMoreButton.value != null)
     loadMoreButton.value.disabled = true;
 });
+
+function incrementLimit() {
+  store.limit += 2;
+}
 </script>
 <template>
-  <button ref="loadMoreButton" class="button" @click="store.limit++">
+  <button ref="loadMoreButton" class="button" @click="incrementLimit">
     LOAD MORE
   </button>
 </template>
@@ -28,9 +32,6 @@ button {
   transition: box-shadow 0.1s linear;
   &:disabled {
     border-color: grey;
-  }
-  &:hover:not(:disabled) {
-    box-shadow: inset 8rem 0 #a9c9ea;
   }
 }
 </style>

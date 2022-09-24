@@ -166,6 +166,23 @@ export const useCounterStore = defineStore({
           },
         ],
       },
+      {
+        userName: "Antii Juhta ",
+        action: "commits",
+        repo: "Loviisa/purchasing",
+        branch: "purchasing-latest",
+        pfp: "anttijuh.png",
+        logs: [
+          {
+            code: "ac34534x5",
+            msg: "changed roof type to table",
+          },
+          {
+            code: "ye11564u9",
+            msg: "changed slab purchase price to match quote ",
+          },
+        ],
+      },
     ] as ChangesInterface[],
   }),
   getters: {
