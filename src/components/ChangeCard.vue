@@ -6,11 +6,11 @@ const changes = getLimitedChanges;
 </script>
 
 <template>
-  <div class="card" v-for="change in changes" :key="change.userName">
+  <div class="card" v-for="change in changes" :key="change.username">
     <div class="heading">
       <img :src="change.pfp" alt="user" />
       <span class="title">
-        <span class="bold">{{ change.userName }} </span>
+        <span class="bold">{{ change.username }} </span>
         <span>made changes to </span>
         <span class="bold">{{ change.repo }}</span>
       </span>

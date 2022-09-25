@@ -99,7 +99,7 @@ export const useCounterStore = defineStore({
     ] as ProjectsInterface[],
     changes: [
       {
-        userName: "Antii Juhta ",
+        username: "Antii Juhta ",
         action: "commits",
         repo: "Loviisa/purchasing",
         branch: "purchasing-latest",
@@ -116,7 +116,7 @@ export const useCounterStore = defineStore({
         ],
       },
       {
-        userName: "Katri Kauniainen ",
+        username: "Katri Kauniainen ",
         action: "commits",
         repo: "Loviisa/design",
         branch: "design-latest",
@@ -133,7 +133,7 @@ export const useCounterStore = defineStore({
         ],
       },
       {
-        userName: "Pekka Harju ",
+        username: "Pekka Harju ",
         action: "commits",
         repo: "Loviisa/project",
         branch: "project-latest",
@@ -150,7 +150,7 @@ export const useCounterStore = defineStore({
         ],
       },
       {
-        userName: "Pekka Harju ",
+        username: "Pekka Harju ",
         action: "commits",
         repo: "Loviisa/project",
         branch: "project-latest",
@@ -167,7 +167,7 @@ export const useCounterStore = defineStore({
         ],
       },
       {
-        userName: "Antii Juhta ",
+        username: "Antii Juhta ",
         action: "commits",
         repo: "Loviisa/purchasing",
         branch: "purchasing-latest",
@@ -211,14 +211,12 @@ export interface ProjectsInterface {
   projectOwner: string;
   comments: number;
   checked: boolean;
-  tagColor: [
-    {
-      "background-color": string;
-    }
-  ];
+  tagColor: {
+    "background-color": string;
+  }[];
 }
 export interface ChangesInterface {
-  userName: string;
+  username: string;
   action: string;
   repo: string;
   branch: string;

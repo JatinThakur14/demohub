@@ -1,15 +1,30 @@
 <script setup lang="ts">
 import { ref, watchEffect } from "vue";
 import { useCounterStore } from "@/stores/counter";
+import { storeToRefs } from "pinia";
 const loadMoreButton = ref<null | { disabled: boolean }>(null);
-const store = useCounterStore();
+const { changes, limit } = storeToRefs(useCounterStore());
 watchEffect(() => {
-  if (store.limit >= store.changes.length && loadMoreButton.value != null)
-    loadMoreButton.value.disabled = true;
+  if (limit.value == changes.value.length) {
+    changes.value.push(
+      JSON.parse(
+        JSON.stringify(
+          changes.value[Math.round(Math.random() * changes.value.length - 1)]
+        )
+      )
+    );
+    changes.value.push(
+      JSON.parse(
+        JSON.stringify(
+          changes.value[Math.round(Math.random() * changes.value.length - 1)]
+        )
+      )
+    );
+  }
 });
 
 function incrementLimit() {
-  store.limit += 2;
+  limit.value += 2;
 }
 </script>
 <template>
