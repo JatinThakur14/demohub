@@ -95,7 +95,6 @@ onMounted(() => {
     border-bottom: 0.5px solid #0002;
     font-size: 13px;
     line-height: 20px;
-    padding-block: 0.4rem;
     font-weight: 400;
     border-radius: 6px 6px 0 0;
     padding-inline: 0.8rem;

@@ -4,6 +4,7 @@ export const useCounterStore = defineStore({
   state: () => ({
     searchBarVal: "",
     isEmpty: null as boolean | null,
+    limit: 3,
     projects: [
       {
         projectName: "Loviisa/Site",
@@ -95,30 +96,133 @@ export const useCounterStore = defineStore({
           },
         ],
       },
-    ] as userProjects[],
+    ] as ProjectsInterface[],
+    changes: [
+      {
+        username: "Antii Juhta ",
+        action: "commits",
+        repo: "Loviisa/purchasing",
+        branch: "purchasing-latest",
+        pfp: "anttijuh.png",
+        logs: [
+          {
+            code: "ac34534x5",
+            msg: "changed roof type to table",
+          },
+          {
+            code: "ye11564u9",
+            msg: "changed slab purchase price to match quote ",
+          },
+        ],
+      },
+      {
+        username: "Katri Kauniainen ",
+        action: "commits",
+        repo: "Loviisa/design",
+        branch: "design-latest",
+        pfp: "katrik.png",
+        logs: [
+          {
+            code: "xz14134a1",
+            msg: "roofing material changed",
+          },
+          {
+            code: "ye11564u9",
+            msg: "changed pillar type",
+          },
+        ],
+      },
+      {
+        username: "Pekka Harju ",
+        action: "commits",
+        repo: "Loviisa/project",
+        branch: "project-latest",
+        pfp: "pekkaharju.png",
+        logs: [
+          {
+            code: "ac34534x5",
+            msg: "number of toilets increased",
+          },
+          {
+            code: "ye11564u9",
+            msg: "new requirements for facade from zoning",
+          },
+        ],
+      },
+      {
+        username: "Pekka Harju ",
+        action: "commits",
+        repo: "Loviisa/project",
+        branch: "project-latest",
+        pfp: "pekkaharju.png",
+        logs: [
+          {
+            code: "ac34534x5",
+            msg: "building footprint reduced",
+          },
+          {
+            code: "ye11564u9",
+            msg: "room height increased",
+          },
+        ],
+      },
+      {
+        username: "Antii Juhta ",
+        action: "commits",
+        repo: "Loviisa/purchasing",
+        branch: "purchasing-latest",
+        pfp: "anttijuh.png",
+        logs: [
+          {
+            code: "ac34534x5",
+            msg: "changed roof type to table",
+          },
+          {
+            code: "ye11564u9",
+            msg: "changed slab purchase price to match quote ",
+          },
+        ],
+      },
+    ] as ChangesInterface[],
   }),
   getters: {
     getFilteredProjects(state) {
-      return state.projects.filter((item) =>
-        item.projectName
-          .toLowerCase()
-          .includes(state.searchBarVal.toLowerCase())
+      return state.projects.filter(
+        (item) =>
+          item.projectName
+            .toLowerCase()
+            .includes(state.searchBarVal.toLowerCase()) ||
+          item.lastUpdated
+            .toLowerCase()
+            .includes(state.searchBarVal.toLowerCase())
       );
+    },
+    getLimitedChanges(state) {
+      return state.changes.slice(0, state.limit);
     },
   },
   actions: {},
 });
 
-export interface userProjects {
+export interface ProjectsInterface {
   projectName: string;
   lastUpdated: string;
   tag: string[];
   projectOwner: string;
   comments: number;
   checked: boolean;
-  tagColor: [
-    {
-      "background-color": string;
-    }
-  ];
+  tagColor: {
+    "background-color": string;
+  }[];
+}
+export interface ChangesInterface {
+  username: string;
+  action: string;
+  repo: string;
+  branch: string;
+  pfp: string;
+  logs: {
+    code: string;
+    msg: string;
+  }[];
 }

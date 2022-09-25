@@ -13,4 +13,8 @@ import NavBar from "./components/NavBar.vue";
   <RouterView />
 </template>
 
-<style></style>
+<style>
+body {
+  overflow-x: hidden;
+}
+</style>
